@@ -43,21 +43,27 @@ post '/visit' do
 	@barber = params[:barber]
 	@color = params[:color]
 
-	Client.create   :name => "#{@username}", 
-			:phone=>"#{@phone}", 
-			:datestamp=>"#{@datetime}",
-			:barber=>"#{@barber}",
-			:color=>"#{@color}"
+	Client.create   :name =>@username, 
+			:phone=>@phone, 
+			:datestamp=>@datetime,
+			:barber=>@barber,
+			:color=>@color
 		erb "<h2>Thank you</h2>"
 end
 
 post '/contacts' do
-		@name = params[:name]
-		@phone = params[:phone]
-		@email = params[:email]
-
-Contacts.create :name => "#{@name}", 
-			:phone=>"#{@phone}", 
-			:email =>"#{@email}"
-		erb "<h2>We will contact you soon</h2>"
+	
+	co =Contacts.new params[:contact]
+	co.save
+  erb "<h2>We will contact you soon</h2>"
 end
+
+
+
+
+
+
+
+
+
+
