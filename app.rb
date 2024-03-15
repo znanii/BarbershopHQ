@@ -31,7 +31,8 @@ get '/blabla' do
 	erb 'BLABLA'
 end
 
-get '/contacts' do		
+get '/contacts' do	
+	@co = Contacts.new	
 	erb :contacts
 end
 
@@ -56,11 +57,11 @@ end
 
 post '/contacts' do
 	
-	co =Contacts.new params[:contact]
-	if co.save
+	@co =Contacts.new params[:contact]
+	if @co.save
   erb "<h2>We will contact you soon</h2>"
   	else
-  		@error = "Ошибка"
+  		@error = @co.errors.full_messages.first
   		erb :contacts
   	end
 end
