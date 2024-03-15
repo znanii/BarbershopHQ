@@ -1,0 +1,9 @@
+<h2>Your appointments:</h2>
+<% @clients.each do |client| %>
+<p> Name: <%= client.name%>, 
+	<br> Date: <%= client.datestamp%>
+	<br> Phone: <%= client.phone%>
+	<br> Color: <%= client.color%>
+	<hr>
+	<%end%>
+</p>

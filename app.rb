@@ -26,9 +26,9 @@ get '/' do
 	erb :index			
 end
 
-get '/blabla' do
-	
-	erb 'BLABLA'
+get '/bookings' do
+	@clients = Client.all
+	erb :clients
 end
 
 get '/contacts' do	
@@ -71,9 +71,6 @@ get "/barber/:id" do
 	@barber = Barber.find(params[:id])
 	erb :barber
 end	
-
-
-
 
 
 
