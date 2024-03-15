@@ -16,8 +16,6 @@ class Contacts < ActiveRecord::Base
 	validates :name, presence: true
 	validates :phone, presence: true
 	validates :email, presence: true
-
-
 end
 
 before do 
@@ -59,9 +57,12 @@ end
 post '/contacts' do
 	
 	co =Contacts.new params[:contact]
-	co.save
+	if co.save
   erb "<h2>We will contact you soon</h2>"
-
+  	else
+  		@error = "Ошибка"
+  		erb :contacts
+  	end
 end
 
 
