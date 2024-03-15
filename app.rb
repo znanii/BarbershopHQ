@@ -68,7 +68,7 @@ end
 
 
 get "/barber/:id" do
-	erb "It's about to be barber's page"
+	erb :barber
 end	
 
 
