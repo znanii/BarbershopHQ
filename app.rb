@@ -13,7 +13,7 @@ class Barber < ActiveRecord::Base
 end
 
 class Contacts < ActiveRecord::Base
-	validates :name, presence: true
+	validates :name, presence: true, length: {minimum: 3}
 	validates :phone, presence: true
 	validates :email, presence: true
 end
@@ -66,6 +66,10 @@ post '/contacts' do
   	end
 end
 
+
+get "/barber/:id" do
+	erb "It's about to be barber's page"
+end	
 
 
 
